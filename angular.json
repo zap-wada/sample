@@ -136,5 +136,8 @@
       }
     }
   },
-  "defaultProject": "sample"
+  "defaultProject": "sample",
+  "cli": {
+    "defaultCollection": "akita-schematics"
+  }
 }
