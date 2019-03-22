@@ -120,8 +120,5 @@
       }
     }
   },
-  "defaultProject": "sample",
-  "cli": {
-    "defaultCollection": "akita-schematics"
-  }
+  "defaultProject": "sample"
 }
