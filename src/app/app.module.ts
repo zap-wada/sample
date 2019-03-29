@@ -7,11 +7,13 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
 import { IndexComponent } from './component/page/index/index.component';
+import { TestComponent } from './component/page/test/test.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent
+    IndexComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
