@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
 import { ID } from '@datorama/akita';
-import { HttpClient } from '@angular/common/http';
 import { PostListStore } from './post-list.store';
 import { PostList } from './post-list.model';
+import { ApiService } from 'src/app/service/api.service';
 
 @Injectable({ providedIn: 'root' })
 export class PostListService {
+  constructor(private postListStore: PostListStore, private api: ApiService) {}
 
-  constructor(private postListStore: PostListStore,
-              private http: HttpClient) {
-  }
-
-  get() {
-    this.http.get('https://akita.com').subscribe((entities) => this.postListStore.set(entities));
+  get(id?: number) {
+    this.api
+      .getPost(id ? { userId: id } : undefined)
+      .subscribe(entities => this.postListStore.set(entities));
   }
 
   add(postList: PostList) {

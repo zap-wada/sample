@@ -7,10 +7,7 @@ export interface PostListState extends EntityState<PostList> {}
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'post-list' })
 export class PostListStore extends EntityStore<PostListState, PostList> {
-
   constructor() {
     super();
   }
-
 }
-

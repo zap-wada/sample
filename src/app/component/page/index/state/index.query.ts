@@ -8,7 +8,6 @@ import { Index } from './index.model';
 })
 export class IndexQuery extends QueryEntity<IndexState, Index> {
   store$ = this.select(state => state);
-  posts$ = this.selectAll();
 
   constructor(protected store: IndexStore) {
     super(store);
