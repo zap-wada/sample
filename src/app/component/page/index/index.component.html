@@ -1,44 +1,24 @@
-<ul class="filter">
-  <li class="filter__list">
-    <select>
-      <option value=""></option>
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
-  </li>
-</ul>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>USER ID</th>
-    <th>TITLE</th>
-    <th>BODY</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>1</td>
-    <td>
-      sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-    </td>
-    <td>
-      quia et suscipit suscipit recusandae consequuntur expedita et cum
-      reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem
-      eveniet architecto
-    </td>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>1</td>
-    <td>
-      sunt aut facere repellat provident occaecati excepturi optio reprehenderit
-    </td>
-    <td>
-      quia et suscipit suscipit recusandae consequuntur expedita et cum
-      reprehenderit molestiae ut ut quas totam nostrum rerum est autem sunt rem
-      eveniet architecto
-    </td>
-  </tr>
-</table>
+<ng-container>
+  <ul class="filter" *ngIf="(store$ | async) as state">
+    <li class="filter__list">
+      <select (change)="changeFilter($event.target.value)">
+        <option value=""></option>
+        <option [value]="id" *ngFor="let id of state.userIds">{{ id }}</option>
+      </select>
+    </li>
+  </ul>
+  <table *ngIf="(posts$ | async) as posts">
+    <tr>
+      <th>ID</th>
+      <th>USER ID</th>
+      <th>TITLE</th>
+      <th>BODY</th>
+    </tr>
+    <tr *ngFor="let post of posts">
+      <td>{{ post.id }}</td>
+      <td>{{ post.userId }}</td>
+      <td>{{ post.title }}</td>
+      <td>{{ post.body }}</td>
+    </tr>
+  </table>
+</ng-container>

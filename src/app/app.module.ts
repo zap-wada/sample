@@ -7,12 +7,14 @@ import { AkitaNgRouterStoreModule } from '@datorama/akita-ng-router-store';
 import { environment } from '../environments/environment';
 import { TestComponent } from './component/page/test/test.component';
 import { IndexComponent } from './component/page/index/index.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, TestComponent, IndexComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     environment.production
       ? []
       : [AkitaNgDevtools.forRoot(), AkitaNgRouterStoreModule.forRoot()]

@@ -1,18 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ID } from '@datorama/akita';
-import { HttpClient } from '@angular/common/http';
 import { IndexStore } from './index.store';
 import { Index } from './index.model';
+import { ApiService } from 'src/app/service/api.service';
 
 @Injectable({ providedIn: 'root' })
 export class IndexService {
+  constructor(private indexStore: IndexStore, private api: ApiService) {}
 
-  constructor(private indexStore: IndexStore,
-              private http: HttpClient) {
-  }
-
-  get() {
-    this.http.get('https://akita.com').subscribe((entities) => this.indexStore.set(entities));
+  get(id?: number) {
+    const params = id ? { userId: id } : undefined;
+    this.api
+      .getPost(params)
+      .subscribe(entities => this.indexStore.set(entities));
   }
 
   add(index: Index) {
