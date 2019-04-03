@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
   constructor(private query: IndexQuery) {}
 
   ngOnInit() {
-    this.store$ = this.query.store$;
+    // this.store$ = this.query.store$;
   }
 
   changeFilter(id: number | null) {

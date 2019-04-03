@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Index } from '../component/page/index/state/index.model';
+import { PostList } from '../component/organism/post-list/state/post-list.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +9,8 @@ import { Index } from '../component/page/index/state/index.model';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  getPost(params?: any): Observable<Index[]> {
-    return this.http.get<Index[]>(
+  getPost(params?: { [key: string]: any }): Observable<PostList[]> {
+    return this.http.get<PostList[]>(
       'https://jsonplaceholder.typicode.com/posts',
       { params }
     );
