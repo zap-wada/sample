@@ -8,9 +8,10 @@ import { environment } from '../environments/environment';
 import { TestComponent } from './component/page/test/test.component';
 import { IndexComponent } from './component/page/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PostListComponent } from './component/organism/post-list/post-list.component';
 
 @NgModule({
-  declarations: [AppComponent, TestComponent, IndexComponent],
+  declarations: [AppComponent, TestComponent, IndexComponent, PostListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
