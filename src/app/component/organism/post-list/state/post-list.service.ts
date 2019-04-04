@@ -10,7 +10,7 @@ export class PostListService {
 
   get(id?: number) {
     this.api
-      .getPost(id ? { userId: id } : undefined)
+      .getPosts(id ? { userId: id } : undefined)
       .subscribe(entities => this.postListStore.set(entities));
   }
 

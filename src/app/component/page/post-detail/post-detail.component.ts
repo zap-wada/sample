@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { PostDetailService } from './state/post-detail.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -7,10 +8,12 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostDetailComponent implements OnInit {
+  id: number;
 
-  constructor() { }
+  constructor(private service: PostDetailService) {}
 
   ngOnInit() {
+    this.id = Number(location.pathname.split('/')[2]);
+    this.service.get(this.id);
   }
-
 }
