@@ -4,11 +4,13 @@
     <th>USER ID</th>
     <th>TITLE</th>
     <th>BODY</th>
+    <th>LINK</th>
   </tr>
   <tr *ngFor="let post of posts">
     <td>{{ post.id }}</td>
     <td>{{ post.userId }}</td>
     <td>{{ post.title }}</td>
     <td>{{ post.body }}</td>
+    <td class="-link"><a [routerLink]="['/', 'post', post.id]">Detail</a></td>
   </tr>
 </table>

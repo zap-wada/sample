@@ -2,22 +2,19 @@ import { Injectable } from '@angular/core';
 import { Store, StoreConfig } from '@datorama/akita';
 
 export interface IndexState {
-   key: string;
+  userIds: number[];
 }
 
 export function createInitialState(): IndexState {
   return {
-    key: ''
+    userIds: [1, 2, 3, 4, 5]
   };
 }
 
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'index' })
 export class IndexStore extends Store<IndexState> {
-
   constructor() {
     super(createInitialState());
   }
-
 }
-

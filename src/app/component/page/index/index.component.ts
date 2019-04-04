@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IndexQuery } from './state/index.query';
 import { IndexState } from './state/index.store';
+import { PostListService } from '../../organism/post-list/state/post-list.service';
 
 @Component({
   selector: 'app-index',
@@ -12,13 +13,16 @@ import { IndexState } from './state/index.store';
 export class IndexComponent implements OnInit {
   store$: Observable<IndexState>;
 
-  constructor(private query: IndexQuery) {}
+  constructor(
+    private query: IndexQuery,
+    private postListService: PostListService
+  ) {}
 
   ngOnInit() {
-    // this.store$ = this.query.store$;
+    this.store$ = this.query.store$;
   }
 
   changeFilter(id: number | null) {
-    console.log(id);
+    this.postListService.get(id);
   }
 }
