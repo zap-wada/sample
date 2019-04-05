@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../state/post/post.model';
+import { User } from '../state/user/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,9 @@ export class ApiService {
 
   getPost(id: number): Observable<Post> {
     return this.http.get<Post>(`${this.baseURL}/posts/${id}`);
+  }
+
+  getUser(id: number): Observable<User> {
+    return this.http.get<User>(`${this.baseURL}/users/${id}`);
   }
 }

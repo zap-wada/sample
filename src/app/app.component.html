@@ -1,4 +1,7 @@
-<ul>
-  <li><a [routerLink]="['/']">TOP</a></li>
-</ul>
-<router-outlet></router-outlet>
+<ng-container>
+  <ul>
+    <li><a [routerLink]="['/']">TOP</a></li>
+  </ul>
+  <router-outlet></router-outlet>
+  <app-modal></app-modal>
+</ng-container>

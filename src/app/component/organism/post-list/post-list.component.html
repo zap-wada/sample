@@ -7,10 +7,12 @@
     <th>LINK</th>
   </tr>
   <tr *ngFor="let post of posts">
-    <td>{{ post.id }}</td>
-    <td>{{ post.userId }}</td>
+    <td class="-center">{{ post.id }}</td>
+    <td class="-center">
+      <span (click)="switchModalFlag(post.id)">{{ post.userId }}</span>
+    </td>
     <td>{{ post.title }}</td>
     <td>{{ post.body }}</td>
-    <td class="-link"><a [routerLink]="['/', 'post', post.id]">Detail</a></td>
+    <td class="-center"><a [routerLink]="['/', 'post', post.id]">Detail</a></td>
   </tr>
 </table>
