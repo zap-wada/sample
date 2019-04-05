@@ -3,11 +3,13 @@ import { Store, StoreConfig } from '@datorama/akita';
 
 export interface ModalState {
   isOpened: boolean;
+  isLoading: boolean;
 }
 
 export function createInitialState(): ModalState {
   return {
-    isOpened: false
+    isOpened: false,
+    isLoading: true
   };
 }
 

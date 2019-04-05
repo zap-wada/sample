@@ -16,7 +16,7 @@
     height: 100%;
     background: rgba(black, 0.32);
     opacity: 0;
-    transition: 0.3s;
+    transition: 0.2s;
     cursor: pointer;
   }
   &__content {
@@ -29,7 +29,10 @@
       0 24px 38px 3px rgba(black, 0.14), 0 9px 46px 8px rgba(black, 0.12);
     opacity: 0;
     transform: scale(0.7);
-    transition: 0.3s;
+    transition: 0.2s;
+    &__loading {
+      text-align: center;
+    }
   }
   &.-on {
     pointer-events: auto;

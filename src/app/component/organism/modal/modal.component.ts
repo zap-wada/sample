@@ -1,4 +1,11 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  ViewChild,
+  ViewContainerRef,
+  AfterViewInit
+} from '@angular/core';
 import { Observable } from 'rxjs';
 import { ModalState } from './state/modal.store';
 import { ModalQuery } from './state/modal.query';
@@ -12,7 +19,9 @@ import { UserState } from 'src/app/state/user/user.store';
   styleUrls: ['./modal.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, AfterViewInit {
+  @ViewChild('content', { read: ViewContainerRef }) vcr;
+
   store$: Observable<ModalState>;
   userStore$: Observable<UserState>;
 
@@ -27,7 +36,11 @@ export class ModalComponent implements OnInit {
     this.userStore$ = this.userQuery.selectAll();
   }
 
+  ngAfterViewInit() {
+    this.service.vcr = this.vcr;
+  }
+
   close() {
-    this.service.switchFlag(false);
+    this.service.close();
   }
 }

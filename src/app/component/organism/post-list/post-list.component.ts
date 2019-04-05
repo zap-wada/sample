@@ -5,6 +5,7 @@ import { PostService } from 'src/app/state/post/post.service';
 import { PostQuery } from 'src/app/state/post/post.query';
 import { ModalService } from '../modal/state/modal.service';
 import { UserService } from 'src/app/state/user/user.service';
+import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 @Component({
   selector: 'app-post-list',
@@ -28,7 +29,7 @@ export class PostListComponent implements OnInit {
   }
 
   switchModalFlag(userId: number) {
-    this.modalService.switchFlag(true);
-    this.userService.get();
+    this.userService.get(userId);
+    this.modalService.open(UserDetailComponent);
   }
 }

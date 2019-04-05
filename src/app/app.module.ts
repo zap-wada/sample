@@ -10,9 +10,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostListComponent } from './component/organism/post-list/post-list.component';
 import { PostDetailComponent } from './component/page/post-detail/post-detail.component';
 import { ModalComponent } from './component/organism/modal/modal.component';
+import { UserDetailComponent } from './component/organism/user-detail/user-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, PostListComponent, PostDetailComponent, ModalComponent],
+  declarations: [
+    AppComponent,
+    IndexComponent,
+    PostListComponent,
+    PostDetailComponent,
+    ModalComponent,
+    UserDetailComponent
+  ],
+  entryComponents: [UserDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
