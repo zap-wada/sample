@@ -1,11 +1,7 @@
-<ng-container *ngIf="(store$ | async) as state">
-  <ul class="filter">
-    <li class="filter__list">
-      <select (change)="changeFilter($event.target.value)">
-        <option value=""></option>
-        <option [value]="id" *ngFor="let id of state.userIds">{{ id }}</option>
-      </select>
-    </li>
-  </ul>
-</ng-container>
-<app-post-list></app-post-list>
+<div *ngIf="(store$ | async) as state">
+  <select (change)="changeFilter($event.target.value)">
+    <option value=""></option>
+    <option [value]="id" *ngFor="let id of state.userIds">{{ id }}</option>
+  </select>
+</div>
+<app-post-list class="table"></app-post-list>
