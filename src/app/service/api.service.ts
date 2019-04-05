@@ -7,17 +7,15 @@ import { Post } from '../state/post/post.model';
   providedIn: 'root'
 })
 export class ApiService {
+  baseURL = 'https://jsonplaceholder.typicode.com';
+
   constructor(private http: HttpClient) {}
 
   getPosts(params?: { [key: string]: any }): Observable<Post[]> {
-    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts', {
-      params
-    });
+    return this.http.get<Post[]>(`${this.baseURL}/posts`, { params });
   }
 
   getPost(id: number): Observable<Post> {
-    return this.http.get<Post>(
-      `https://jsonplaceholder.typicode.com/posts/${id}`
-    );
+    return this.http.get<Post>(`${this.baseURL}/posts/${id}`);
   }
 }
