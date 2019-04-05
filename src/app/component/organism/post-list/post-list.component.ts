@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PostListService } from './state/post-list.service';
-import { PostListQuery } from './state/post-list.query';
-import { PostList } from './state/post-list.model';
+import { Post } from 'src/app/state/post/post.model';
+import { PostService } from 'src/app/state/post/post.service';
+import { PostQuery } from 'src/app/state/post/post.query';
 
 @Component({
   selector: 'app-post-list',
@@ -11,12 +11,12 @@ import { PostList } from './state/post-list.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PostListComponent implements OnInit {
-  posts$: Observable<PostList[]>;
+  posts$: Observable<Post[]>;
 
-  constructor(private service: PostListService, private query: PostListQuery) {}
+  constructor(private postService: PostService, private postQuery: PostQuery) {}
 
   ngOnInit() {
-    this.service.get();
-    this.posts$ = this.query.posts$;
+    this.postService.get();
+    this.posts$ = this.postQuery.posts$;
   }
 }

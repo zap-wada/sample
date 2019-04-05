@@ -2,6 +2,9 @@ import { ID } from '@datorama/akita';
 
 export interface Post {
   id: ID;
+  userId: number;
+  title: string;
+  body: string;
 }
 
 /**
@@ -9,6 +12,9 @@ export interface Post {
  */
 export function createPost(params: Partial<Post>) {
   return {
-
-  } as Post;
+    id: params.id,
+    userId: params.userId,
+    title: params.title,
+    body: params.body
+  };
 }

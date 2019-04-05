@@ -7,9 +7,9 @@ import { Post } from './post.model';
   providedIn: 'root'
 })
 export class PostQuery extends QueryEntity<PostState, Post> {
+  posts$ = this.selectAll();
 
   constructor(protected store: PostStore) {
     super(store);
   }
-
 }

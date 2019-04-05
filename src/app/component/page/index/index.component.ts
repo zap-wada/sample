@@ -1,8 +1,13 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  OnDestroy
+} from '@angular/core';
 import { Observable } from 'rxjs';
 import { IndexQuery } from './state/index.query';
 import { IndexState } from './state/index.store';
-import { PostListService } from '../../organism/post-list/state/post-list.service';
+import { PostService } from 'src/app/state/post/post.service';
 
 @Component({
   selector: 'app-index',
@@ -10,19 +15,21 @@ import { PostListService } from '../../organism/post-list/state/post-list.servic
   styleUrls: ['./index.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, OnDestroy {
   store$: Observable<IndexState>;
 
-  constructor(
-    private query: IndexQuery,
-    private postListService: PostListService
-  ) {}
+  constructor(private query: IndexQuery, private postService: PostService) {}
 
   ngOnInit() {
     this.store$ = this.query.store$;
   }
 
+  ngOnDestroy() {
+    this.postService.reset();
+  }
+
   changeFilter(id: number | null) {
-    this.postListService.get(id);
+    this.postService.reset();
+    this.postService.get(id);
   }
 }
