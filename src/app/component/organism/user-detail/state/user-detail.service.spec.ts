@@ -10,7 +10,7 @@ describe('UserDetailService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [UserDetailService, UserDetailStore],
-      imports: [ HttpClientTestingModule ]
+      imports: [HttpClientTestingModule]
     });
 
     userDetailService = TestBed.get(UserDetailService);
@@ -20,5 +20,4 @@ describe('UserDetailService', () => {
   it('should be created', () => {
     expect(userDetailService).toBeDefined();
   });
-
 });

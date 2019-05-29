@@ -13,22 +13,13 @@ import { IndexComponent } from './component/page/index/index.component';
 import { PostDetailComponent } from './component/page/post-detail/post-detail.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    IndexComponent,
-    PostListComponent,
-    PostDetailComponent,
-    ModalComponent,
-    UserDetailComponent
-  ],
+  declarations: [AppComponent, IndexComponent, PostListComponent, PostDetailComponent, ModalComponent, UserDetailComponent],
   entryComponents: [UserDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    environment.production
-      ? []
-      : [AkitaNgDevtools.forRoot(), AkitaNgRouterStoreModule.forRoot()]
+    environment.production ? [] : [AkitaNgDevtools.forRoot(), AkitaNgRouterStoreModule.forRoot()]
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@ describe('ModalService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [ModalService, ModalStore],
-      imports: [ HttpClientTestingModule ]
+      imports: [HttpClientTestingModule]
     });
 
     modalService = TestBed.get(ModalService);
@@ -20,5 +20,4 @@ describe('ModalService', () => {
   it('should be created', () => {
     expect(modalService).toBeDefined();
   });
-
 });

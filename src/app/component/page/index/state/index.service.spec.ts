@@ -10,7 +10,7 @@ describe('IndexService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [IndexService, IndexStore],
-      imports: [ HttpClientTestingModule ]
+      imports: [HttpClientTestingModule]
     });
 
     indexService = TestBed.get(IndexService);
@@ -20,5 +20,4 @@ describe('IndexService', () => {
   it('should be created', () => {
     expect(indexService).toBeDefined();
   });
-
 });

@@ -1,4 +1,4 @@
-<div *ngIf="(store$ | async) as state">
+<div *ngIf="store$ | async as state">
   <select (change)="changeFilter($event.target.value)">
     <option value="">ALL</option>
     <option [value]="id" *ngFor="let id of state.userIds">{{ id }}</option>

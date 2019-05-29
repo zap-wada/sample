@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PostListService } from '../../organism/post-list/state/post-list.service';
 import { IndexQuery } from './state/index.query';
@@ -18,10 +13,7 @@ import { IndexState } from './state/index.store';
 export class IndexComponent implements OnInit, OnDestroy {
   store$: Observable<IndexState>;
 
-  constructor(
-    private query: IndexQuery,
-    private postListService: PostListService
-  ) {}
+  constructor(private query: IndexQuery, private postListService: PostListService) {}
 
   ngOnInit() {
     this.store$ = this.query.store$;

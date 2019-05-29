@@ -7,10 +7,7 @@ export interface UserDetailState extends EntityState<UserDetail> {}
 @Injectable({ providedIn: 'root' })
 @StoreConfig({ name: 'user-detail' })
 export class UserDetailStore extends EntityStore<UserDetailState, UserDetail> {
-
   constructor() {
     super();
   }
-
 }
-

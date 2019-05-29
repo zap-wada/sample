@@ -5,11 +5,10 @@ describe('IndexQuery', () => {
   let query: IndexQuery;
 
   beforeEach(() => {
-    query = new IndexQuery(new IndexStore);
+    query = new IndexQuery(new IndexStore());
   });
 
   it('should create an instance', () => {
     expect(query).toBeTruthy();
   });
-
 });

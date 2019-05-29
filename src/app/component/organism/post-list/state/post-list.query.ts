@@ -7,9 +7,7 @@ import { PostListState, PostListStore } from './post-list.store';
   providedIn: 'root'
 })
 export class PostListQuery extends QueryEntity<PostListState, PostList> {
-
   constructor(protected store: PostListStore) {
     super(store);
   }
-
 }

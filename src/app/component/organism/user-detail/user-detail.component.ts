@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 import { User } from 'src/app/model/user.model';
@@ -20,11 +15,7 @@ import { UserDetailService } from './state/user-detail.service';
 export class UserDetailComponent implements OnInit, OnDestroy {
   store$: Observable<User[]>;
 
-  constructor(
-    private userDetailService: UserDetailService,
-    private userDetailQuery: UserDetailQuery,
-    private modalService: ModalService
-  ) {}
+  constructor(private userDetailService: UserDetailService, private userDetailQuery: UserDetailQuery, private modalService: ModalService) {}
 
   ngOnInit() {
     this.store$ = this.userDetailQuery.selectAll().pipe(

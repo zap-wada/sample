@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterQuery } from '@datorama/akita-ng-router-store';
 import { Observable } from 'rxjs';
 import { ModalService } from '../../organism/modal/state/modal.service';

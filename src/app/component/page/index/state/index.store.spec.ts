@@ -10,5 +10,4 @@ describe('IndexStore', () => {
   it('should create an instance', () => {
     expect(store).toBeTruthy();
   });
-
 });

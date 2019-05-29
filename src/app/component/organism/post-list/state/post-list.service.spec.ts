@@ -10,7 +10,7 @@ describe('PostListService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [PostListService, PostListStore],
-      imports: [ HttpClientTestingModule ]
+      imports: [HttpClientTestingModule]
     });
 
     postListService = TestBed.get(PostListService);
@@ -20,5 +20,4 @@ describe('PostListService', () => {
   it('should be created', () => {
     expect(postListService).toBeDefined();
   });
-
 });
