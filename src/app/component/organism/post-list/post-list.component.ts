@@ -29,6 +29,7 @@ export class PostListComponent implements OnInit {
   }
 
   switchModalFlag(userId: number) {
+    this.userService.reset();
     this.userService.get(userId);
     this.modalService.open(UserDetailComponent);
     this.modalService.switchLoadingFlag(true);
