@@ -27,6 +27,6 @@ export class UserDetailService {
   }
 
   reset() {
-    this.userDetailStore.set([]);
+    this.userDetailStore.reset();
   }
 }
