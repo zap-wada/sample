@@ -5,10 +5,10 @@ import {
   OnInit
 } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Post } from 'src/app/state/post/post.model';
-import { PostQuery } from 'src/app/state/post/post.query';
-import { PostService } from 'src/app/state/post/post.service';
 import { ModalService } from '../../organism/modal/state/modal.service';
+import { PostList } from '../../organism/post-list/state/post-list.model';
+import { PostListQuery } from '../../organism/post-list/state/post-list.query';
+import { PostListService } from '../../organism/post-list/state/post-list.service';
 import { UserDetailService } from '../../organism/user-detail/state/user-detail.service';
 import { UserDetailComponent } from '../../organism/user-detail/user-detail.component';
 
@@ -20,23 +20,23 @@ import { UserDetailComponent } from '../../organism/user-detail/user-detail.comp
 })
 export class PostDetailComponent implements OnInit, OnDestroy {
   id: number;
-  posts$: Observable<Post[]>;
+  posts$: Observable<PostList[]>;
 
   constructor(
-    private postService: PostService,
-    private postQuery: PostQuery,
+    private postListService: PostListService,
+    private postListQuery: PostListQuery,
     private modalService: ModalService,
     private userDetailService: UserDetailService
   ) {}
 
   ngOnInit() {
     this.id = Number(location.pathname.split('/')[2]);
-    this.posts$ = this.postQuery.posts$;
-    this.postService.getPost(this.id);
+    this.posts$ = this.postListQuery.selectAll();
+    this.postListService.getPost(this.id);
   }
 
   ngOnDestroy() {
-    this.postService.reset();
+    this.postListService.reset();
   }
 
   switchModalFlag(userId: number) {
