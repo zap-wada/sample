@@ -1,9 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import { Post } from '../state/post/post.model';
-import { User } from '../state/user/user.model';
 import { delay } from 'rxjs/operators';
+import { User } from '../model/user.model';
+import { Post } from '../state/post/post.model';
 
 @Injectable({
   providedIn: 'root'

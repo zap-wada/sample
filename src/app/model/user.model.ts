@@ -21,10 +21,3 @@ export interface User {
     bs: string;
   };
 }
-
-/**
- * A factory function that creates User
- */
-export function createUser(params: Partial<User>) {
-  return {} as User;
-}

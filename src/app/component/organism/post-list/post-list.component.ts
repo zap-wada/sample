@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { Post } from 'src/app/state/post/post.model';
 import { PostQuery } from 'src/app/state/post/post.query';
 import { PostService } from 'src/app/state/post/post.service';
-import { UserService } from 'src/app/state/user/user.service';
 import { ModalService } from '../modal/state/modal.service';
+import { UserDetailService } from '../user-detail/state/user-detail.service';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 @Component({
@@ -20,7 +20,7 @@ export class PostListComponent implements OnInit {
     private postService: PostService,
     private postQuery: PostQuery,
     private modalService: ModalService,
-    private userService: UserService
+    private userDetailService: UserDetailService
   ) {}
 
   ngOnInit() {
@@ -29,8 +29,7 @@ export class PostListComponent implements OnInit {
   }
 
   switchModalFlag(userId: number) {
-    this.userService.reset();
-    this.userService.get(userId);
+    this.userDetailService.get(userId);
     this.modalService.open(UserDetailComponent);
     this.modalService.switchLoadingFlag(true);
   }
