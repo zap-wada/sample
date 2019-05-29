@@ -1,10 +1,10 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/state/post/post.model';
-import { PostService } from 'src/app/state/post/post.service';
 import { PostQuery } from 'src/app/state/post/post.query';
-import { ModalService } from '../modal/state/modal.service';
+import { PostService } from 'src/app/state/post/post.service';
 import { UserService } from 'src/app/state/user/user.service';
+import { ModalService } from '../modal/state/modal.service';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 
 @Component({
@@ -31,5 +31,6 @@ export class PostListComponent implements OnInit {
   switchModalFlag(userId: number) {
     this.userService.get(userId);
     this.modalService.open(UserDetailComponent);
+    this.modalService.switchLoadingFlag(true);
   }
 }

@@ -1,9 +1,9 @@
-<ng-container *ngIf="(store$ | async) as state">
+<ng-container *ngIf="store$ | async as state">
   <div class="modal" [class.-on]="state.isOpened">
     <div class="modal__filter" (click)="close()"></div>
     <div class="modal__content">
-      <div class="modal__content__loading" *ngIf="state.isLoading">
-        loading...
+      <div class="modal__content__loading" *ngIf="state.loading">
+        Loading...
       </div>
       <div #content></div>
     </div>

@@ -1,7 +1,7 @@
 import {
+  ComponentFactoryResolver,
   Injectable,
-  ViewContainerRef,
-  ComponentFactoryResolver
+  ViewContainerRef
 } from '@angular/core';
 import { ModalStore } from './modal.store';
 
@@ -28,17 +28,21 @@ export class ModalService {
     }
 
     this.currentComponent = component;
-    this.switchFlag(true);
+    this.switchOpenedFlag(true);
   }
 
   close(): void {
     if (this.currentComponent) {
       this.currentComponent.destroy();
-      this.switchFlag(false);
+      this.switchOpenedFlag(false);
     }
   }
 
-  switchFlag(isOpened: boolean) {
+  switchLoadingFlag(isLoading: boolean) {
+    this.modalStore.setLoading(isLoading);
+  }
+
+  switchOpenedFlag(isOpened: boolean) {
     this.modalStore.update({ isOpened });
   }
 }

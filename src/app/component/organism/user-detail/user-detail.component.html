@@ -1,41 +1,45 @@
-<ng-container *ngIf="(userStore$ | async) as users">
-  <table *ngFor="let user of users">
-    <tr>
-      <th>ID</th>
-      <td>{{ user.id }}</td>
-    </tr>
-    <tr>
-      <th>NAME</th>
-      <td>{{ user.name }}</td>
-    </tr>
-    <tr>
-      <th>USER NAME</th>
-      <td>{{ user.username }}</td>
-    </tr>
-    <tr>
-      <th>EMAIL</th>
-      <td>{{ user.email }}</td>
-    </tr>
-    <tr *ngIf="user.address as address">
-      <th>ADDRESS</th>
-      <td>
-        {{ address.zipcode }}<br />{{ address.city }}<br />{{ address.street
-        }}<br />{{ address.suite }}
-      </td>
-    </tr>
-    <tr>
-      <th>PHONE</th>
-      <td>{{ user.phone }}</td>
-    </tr>
-    <tr>
-      <th>WEBSITE</th>
-      <td>{{ user.website }}</td>
-    </tr>
-    <tr *ngIf="user.company as company">
-      <th>COMPANY</th>
-      <td>
-        {{ company.name }}<br />{{ company.catchPhrase }}<br />{{ company.bs }}
-      </td>
-    </tr>
-  </table>
+<ng-container *ngIf="store$ | async as users">
+  <div class="userDetail" *ngIf="users.length">
+    <table class="userDetail__table" *ngFor="let user of users">
+      <tr>
+        <th>ID</th>
+        <td>{{ user.id }}</td>
+      </tr>
+      <tr>
+        <th>NAME</th>
+        <td>{{ user.name }}</td>
+      </tr>
+      <tr>
+        <th>USER NAME</th>
+        <td>{{ user.username }}</td>
+      </tr>
+      <tr>
+        <th>EMAIL</th>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr *ngIf="user.address as address">
+        <th>ADDRESS</th>
+        <td>
+          {{ address.zipcode }}<br />{{ address.city }}<br />{{ address.street
+          }}<br />{{ address.suite }}
+        </td>
+      </tr>
+      <tr>
+        <th>PHONE</th>
+        <td>{{ user.phone }}</td>
+      </tr>
+      <tr>
+        <th>WEBSITE</th>
+        <td>{{ user.website }}</td>
+      </tr>
+      <tr *ngIf="user.company as company">
+        <th>COMPANY</th>
+        <td>
+          {{ company.name }}<br />{{ company.catchPhrase }}<br />{{
+            company.bs
+          }}
+        </td>
+      </tr>
+    </table>
+  </div>
 </ng-container>

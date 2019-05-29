@@ -22,7 +22,6 @@
   &__content {
     position: relative;
     max-width: calc(100vw - 32px);
-    padding: 8px;
     background: white;
     border-radius: 4px;
     box-shadow: 0 11px 15px -7px rgba(black, 0.2),
@@ -31,6 +30,7 @@
     transform: scale(0.7);
     transition: 0.2s;
     &__loading {
+      padding: 8px;
       text-align: center;
     }
   }

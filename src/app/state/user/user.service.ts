@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ID } from '@datorama/akita';
-import { UserStore } from './user.store';
-import { User } from './user.model';
 import { ApiService } from 'src/app/service/api.service';
+import { User } from './user.model';
+import { UserStore } from './user.store';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
