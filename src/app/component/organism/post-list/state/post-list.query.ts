@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { QueryEntity } from '@datorama/akita';
-import { PostListStore, PostListState } from './post-list.store';
 import { PostList } from './post-list.model';
+import { PostListState, PostListStore } from './post-list.store';
 
 @Injectable({
   providedIn: 'root'
