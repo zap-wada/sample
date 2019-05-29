@@ -4,6 +4,7 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
+import { RouterQuery } from '@datorama/akita-ng-router-store';
 import { Observable } from 'rxjs';
 import { ModalService } from '../../organism/modal/state/modal.service';
 import { PostList } from '../../organism/post-list/state/post-list.model';
@@ -26,11 +27,12 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     private postListService: PostListService,
     private postListQuery: PostListQuery,
     private modalService: ModalService,
-    private userDetailService: UserDetailService
+    private userDetailService: UserDetailService,
+    private routerQuery: RouterQuery
   ) {}
 
   ngOnInit() {
-    this.id = Number(location.pathname.split('/')[2]);
+    this.id = this.routerQuery.getSnapshot().state.root.params.post_id || 1;
     this.posts$ = this.postListQuery.selectAll();
     this.postListService.getPost(this.id);
   }

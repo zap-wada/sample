@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './component/page/index/index.component';
 import { PostDetailComponent } from './component/page/post-detail/post-detail.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: 'post', children: [{ path: ':id', component: PostDetailComponent }] }
+  {
+    path: 'post',
+    children: [{ path: ':post_id', component: PostDetailComponent }]
+  }
 ];
 
 @NgModule({
