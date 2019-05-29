@@ -8,6 +8,7 @@ export class UserDetailService {
   constructor(private userDetailStore: UserDetailStore, private apiService: ApiService) {}
 
   get(userId: number) {
+    this.reset();
     this.apiService.getUser(userId).subscribe(content => {
       this.userDetailStore.set([content]);
     });
