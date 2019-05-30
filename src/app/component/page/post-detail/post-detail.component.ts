@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterQuery } from '@datorama/akita-ng-router-store';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { Breadcrumb, createBreadcrumb } from '../../organism/breadcrumb/state/breadcrumb.model';
+import { BreadcrumbService } from '../../organism/breadcrumb/state/breadcrumb.service';
 import { ModalService } from '../../organism/modal/state/modal.service';
 import { PostList } from '../../organism/post-list/state/post-list.model';
 import { PostListQuery } from '../../organism/post-list/state/post-list.query';
@@ -17,19 +20,24 @@ import { UserDetailComponent } from '../../organism/user-detail/user-detail.comp
 export class PostDetailComponent implements OnInit, OnDestroy {
   id: number;
   posts$: Observable<PostList[]>;
+  breadcrumbs: Breadcrumb[] = [createBreadcrumb({ title: 'TOP', links: ['/'] }), createBreadcrumb({ title: 'Post' })];
 
   constructor(
     private postListService: PostListService,
     private postListQuery: PostListQuery,
     private modalService: ModalService,
     private userDetailService: UserDetailService,
-    private routerQuery: RouterQuery
+    private routerQuery: RouterQuery,
+    private breadcrumbService: BreadcrumbService
   ) {}
 
   ngOnInit() {
     this.id = this.routerQuery.getSnapshot().state.root.params.post_id || 1;
-    this.posts$ = this.postListQuery.selectAll();
+    this.posts$ = this.postListQuery
+      .selectAll()
+      .pipe(tap(posts => this.breadcrumbService.set(this.breadcrumbs.concat(posts.map(post => createBreadcrumb({ title: post.title }))))));
     this.postListService.getPost(this.id);
+    this.breadcrumbService.set(this.breadcrumbs);
   }
 
   ngOnDestroy() {

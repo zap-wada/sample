@@ -1,4 +1,8 @@
-<ul class="bread">
-  <li class="bread__list"><a [routerLink]="['/']">TOP</a></li>
-  <li class="bread__list">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</li>
-</ul>
+<ng-container *ngIf="breads$ | async as breads">
+  <ul class="bread" *ngIf="breads.length">
+    <li class="bread__list" *ngFor="let bread of breads">
+      <a [routerLink]="['/']" *ngIf="bread.links.length">{{ bread.title }}</a>
+      <ng-container *ngIf="!bread.links.length">{{ bread.title }}</ng-container>
+    </li>
+  </ul>
+</ng-container>
