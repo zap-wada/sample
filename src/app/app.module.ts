@@ -11,9 +11,10 @@ import { PostListComponent } from './component/organism/post-list/post-list.comp
 import { UserDetailComponent } from './component/organism/user-detail/user-detail.component';
 import { IndexComponent } from './component/page/index/index.component';
 import { PostDetailComponent } from './component/page/post-detail/post-detail.component';
+import { BreadcrumbComponent } from './component/organism/breadcrumb/breadcrumb.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, PostListComponent, PostDetailComponent, ModalComponent, UserDetailComponent],
+  declarations: [AppComponent, IndexComponent, PostListComponent, PostDetailComponent, ModalComponent, UserDetailComponent, BreadcrumbComponent],
   entryComponents: [UserDetailComponent],
   imports: [
     BrowserModule,
