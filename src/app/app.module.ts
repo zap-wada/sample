@@ -6,15 +6,23 @@ import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
+import { BreadcrumbComponent } from './component/organism/breadcrumb/breadcrumb.component';
 import { ModalComponent } from './component/organism/modal/modal.component';
 import { PostListComponent } from './component/organism/post-list/post-list.component';
 import { UserDetailComponent } from './component/organism/user-detail/user-detail.component';
 import { IndexComponent } from './component/page/index/index.component';
 import { PostDetailComponent } from './component/page/post-detail/post-detail.component';
-import { BreadcrumbComponent } from './component/organism/breadcrumb/breadcrumb.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, PostListComponent, PostDetailComponent, ModalComponent, UserDetailComponent, BreadcrumbComponent],
+  declarations: [
+    AppComponent,
+    IndexComponent,
+    PostListComponent,
+    PostDetailComponent,
+    ModalComponent,
+    UserDetailComponent,
+    BreadcrumbComponent
+  ],
   entryComponents: [UserDetailComponent],
   imports: [
     BrowserModule,
