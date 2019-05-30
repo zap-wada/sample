@@ -1,4 +1,4 @@
-<ng-container *ngIf="store$ | async as users">
+<ng-container *ngIf="users$ | async as users">
   <div class="userDetail" *ngIf="users.length">
     <table class="userDetail__table" *ngFor="let user of users">
       <tr>

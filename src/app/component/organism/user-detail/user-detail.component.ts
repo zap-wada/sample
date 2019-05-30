@@ -13,12 +13,12 @@ import { UserDetailService } from './state/user-detail.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserDetailComponent implements OnInit, OnDestroy {
-  store$: Observable<User[]>;
+  users$: Observable<User[]>;
 
   constructor(private userDetailService: UserDetailService, private userDetailQuery: UserDetailQuery, private modalService: ModalService) {}
 
   ngOnInit() {
-    this.store$ = this.userDetailQuery.selectAll().pipe(
+    this.users$ = this.userDetailQuery.users$.pipe(
       filter(contents => contents.length > 0),
       tap(() => this.modalService.switchLoadingFlag(false))
     );

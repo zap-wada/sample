@@ -25,7 +25,7 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this.postListService.get();
-    this.posts$ = this.postListQuery.selectAll();
+    this.posts$ = this.postListQuery.posts$;
   }
 
   switchModalFlag(userId: number) {

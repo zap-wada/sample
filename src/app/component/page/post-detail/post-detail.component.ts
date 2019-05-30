@@ -33,9 +33,9 @@ export class PostDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.id = this.routerQuery.getSnapshot().state.root.params.post_id || 1;
-    this.posts$ = this.postListQuery
-      .selectAll()
-      .pipe(tap(posts => this.breadcrumbService.set(this.breadcrumbs.concat(posts.map(post => createBreadcrumb({ title: post.title }))))));
+    this.posts$ = this.postListQuery.posts$.pipe(
+      tap(posts => this.breadcrumbService.set(this.breadcrumbs.concat(posts.map(post => createBreadcrumb({ title: post.title })))))
+    );
     this.postListService.getPost(this.id);
     this.breadcrumbService.set(this.breadcrumbs);
   }
