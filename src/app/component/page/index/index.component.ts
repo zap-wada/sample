@@ -25,6 +25,6 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   changeFilter(id: number | null) {
     this.postListService.reset();
-    this.postListService.get(id);
+    this.postListService.getPostByUserId(id);
   }
 }

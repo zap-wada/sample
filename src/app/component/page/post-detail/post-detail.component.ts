@@ -36,7 +36,7 @@ export class PostDetailComponent implements OnInit, OnDestroy {
     this.posts$ = this.postListQuery.posts$.pipe(
       tap(posts => this.breadcrumbService.set(this.breadcrumbs.concat(posts.map(post => createBreadcrumb({ title: post.title })))))
     );
-    this.postListService.getPost(this.id);
+    this.postListService.getPostByPostId(this.id);
     this.breadcrumbService.set(this.breadcrumbs);
   }
 

@@ -24,7 +24,7 @@ export class PostListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.postListService.get();
+    this.postListService.getPostByUserId();
     this.posts$ = this.postListQuery.posts$;
   }
 
