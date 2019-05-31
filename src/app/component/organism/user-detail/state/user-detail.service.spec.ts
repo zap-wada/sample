@@ -1,6 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { akitaConfig } from '@datorama/akita';
 import { of } from 'rxjs';
 import { ApiService } from 'src/app/service/api.service';
 import { UserDetailService } from './user-detail.service';
@@ -20,10 +19,6 @@ describe('UserDetailService', () => {
     userDetailService = TestBed.get(UserDetailService);
     userDetailStore = TestBed.get(UserDetailStore);
     apiService = TestBed.get(ApiService);
-
-    akitaConfig({
-      resettable: true
-    });
   });
 
   it('should be created', () => {
