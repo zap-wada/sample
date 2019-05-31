@@ -9,10 +9,6 @@ export class ModalService {
   constructor(private resolver: ComponentFactoryResolver, private modalStore: ModalStore) {}
 
   open(data: any): void {
-    if (!data) {
-      return;
-    }
-
     const factory = this.resolver.resolveComponentFactory(data);
     const component = this.vcr.createComponent(factory);
 

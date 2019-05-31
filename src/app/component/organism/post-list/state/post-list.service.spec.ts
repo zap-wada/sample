@@ -26,7 +26,7 @@ describe('PostListService', () => {
   });
 
   describe('getPostByUserId', () => {
-    it('when userId is defined, should store set method call with dummy post', () => {
+    it('when userId is defined, should call with dummy post', () => {
       const userId = 1;
       const post = { id: 1 };
       const apiSpy = spyOn(apiService, 'getPosts').and.returnValue(of([post]));
@@ -36,7 +36,7 @@ describe('PostListService', () => {
       expect(storeSpy).toHaveBeenCalledWith([post]);
     });
 
-    it('when userId is undefined, should store set method call with dummy post', () => {
+    it('when userId is undefined, should call with dummy post', () => {
       const post = { id: 1 };
       const apiSpy = spyOn(apiService, 'getPosts').and.returnValue(of([post]));
       const storeSpy = spyOn(postListStore, 'set');
@@ -47,7 +47,7 @@ describe('PostListService', () => {
   });
 
   describe('getPost', () => {
-    it('should store set method call with dummy post', () => {
+    it('should call with dummy post', () => {
       const postId = 1;
       const post = { id: 1 };
       const apiSpy = spyOn(apiService, 'getPost').and.returnValue(of(post));

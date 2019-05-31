@@ -20,4 +20,26 @@ describe('ModalService', () => {
   it('should be created', () => {
     expect(modalService).toBeDefined();
   });
+
+  describe('open', () => {});
+
+  describe('close', () => {});
+
+  describe('switchLoadingFlag', () => {
+    it('should call with true', () => {
+      const isLoading = true;
+      const spy = spyOn(modalStore, 'setLoading');
+      modalService.switchLoadingFlag(isLoading);
+      expect(spy).toHaveBeenCalledWith(isLoading);
+    });
+  });
+
+  describe('switchOpenedFlag', () => {
+    it('should call with true', () => {
+      const isOpened = true;
+      const spy = spyOn(modalStore, 'update');
+      modalService.switchOpenedFlag(isOpened);
+      expect(spy).toHaveBeenCalledWith({ isOpened });
+    });
+  });
 });
