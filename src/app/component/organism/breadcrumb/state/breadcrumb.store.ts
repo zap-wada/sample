@@ -8,6 +8,7 @@ export interface BreadcrumbState extends EntityState<Breadcrumb> {}
 @StoreConfig({ name: 'breadcrumb' })
 export class BreadcrumbStore extends EntityStore<BreadcrumbState, Breadcrumb> {
   constructor() {
+    /* istanbul ignore next */
     super();
   }
 }

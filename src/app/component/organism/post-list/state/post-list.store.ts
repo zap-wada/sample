@@ -8,6 +8,7 @@ export interface PostListState extends EntityState<PostList> {}
 @StoreConfig({ name: 'post-list' })
 export class PostListStore extends EntityStore<PostListState, PostList> {
   constructor() {
+    /* istanbul ignore next */
     super();
   }
 }
