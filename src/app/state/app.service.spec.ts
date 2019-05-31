@@ -1,5 +1,5 @@
-import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TestBed } from '@angular/core/testing';
 import { AppService } from './app.service';
 import { AppStore } from './app.store';
 
@@ -10,7 +10,7 @@ describe('AppService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [AppService, AppStore],
-      imports: [ HttpClientTestingModule ]
+      imports: [HttpClientTestingModule]
     });
 
     appService = TestBed.get(AppService);
@@ -20,5 +20,4 @@ describe('AppService', () => {
   it('should be created', () => {
     expect(appService).toBeDefined();
   });
-
 });

@@ -5,11 +5,10 @@ describe('AppQuery', () => {
   let query: AppQuery;
 
   beforeEach(() => {
-    query = new AppQuery(new AppStore);
+    query = new AppQuery(new AppStore());
   });
 
   it('should create an instance', () => {
     expect(query).toBeTruthy();
   });
-
 });
